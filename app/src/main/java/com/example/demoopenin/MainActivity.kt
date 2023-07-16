@@ -78,12 +78,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         val barDataSet = BarDataSet(barEntries, "URL Clicks")
-        barDataSet.color = Color.BLUE
+        barDataSet.color = Color.argb(255, 14, 111, 255)
 
         val barData = BarData(barDataSet)
 
         chart.data = barData
-        chart.description.isEnabled = false
+        chart.setBackgroundColor(Color.WHITE)
         chart.xAxis.labelRotationAngle = -45f
         chart.xAxis.position = XAxis.XAxisPosition.BOTTOM
         chart.axisLeft.axisMinimum = 0f
