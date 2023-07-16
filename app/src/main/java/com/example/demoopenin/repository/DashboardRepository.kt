@@ -7,7 +7,6 @@ import com.example.demoopenin.networking.RetrofitClient
 
 class DashboardRepository {
     private val apiService: DashboardApiService = RetrofitClient.apiService
-
     suspend fun getDashboardData(token: String): ApiResponse<DashBoardModel> {
         return try {
             val response = apiService.getDashboardData("Bearer $token")

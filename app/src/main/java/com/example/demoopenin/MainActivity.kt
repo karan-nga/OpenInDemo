@@ -14,7 +14,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.WindowCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,7 +37,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var chart: BarChart
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[DashboardViewModel::class.java]
         val token = getString(R.string.token)
@@ -53,12 +51,10 @@ class MainActivity : AppCompatActivity() {
                     binding = ActivityMainBinding.inflate(layoutInflater)
                     setContentView(binding.root)
                     chart=binding.chart
-                    val dashboardData = response.data
-                    val overallUrlChart = dashboardData.data.overall_url_chart
                     binding.currentTime.text= getGreetingMessage()
                     binding.userName.text=getString(R.string.user_name)
-                    topAndRecentLinks(dashboardData)
-                    buildGraph(overallUrlChart)
+                    topAndRecentLinks(response.data)
+                    buildGraph(response.data.data.overall_url_chart)
                 }
                 is ApiResponse.Error -> {
                     progressDialog.dismiss()
