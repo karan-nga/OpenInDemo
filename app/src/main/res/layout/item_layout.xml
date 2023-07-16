@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeColor="#F5F5F5"
+        app:strokeWidth="1dp"
+       android:elevation="10dp"
+        app:cardCornerRadius="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:strokeColor="#F5F5F5"
+                    app:strokeWidth="1dp"
+                    android:layout_margin="5dp"
+                    android:elevation="10dp">
+
+                    <ImageView
+                        android:id="@+id/logo"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:scaleType="fitXY"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/linkName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:text="Sample link name..."
+                        android:maxLines="1"
+                        android:fontFamily="@font/figtreeregular"
+                        android:textFontWeight="400"/>
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="#999CA0"
+                        android:text="22 Aug 2022"
+                        android:maxLines="1"
+                        android:fontFamily="@font/figtreeregular"
+                        android:textFontWeight="400"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/numberOfClicks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/figtreeregular"
+                        android:maxLines="1"
+                        android:text="Sample link name..."
+                        android:textColor="@color/black"
+                        android:textFontWeight="400"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/figtreeregular"
+                        android:maxLines="1"
+                        android:text="Clicks"
+                        android:textColor="#999CA0"
+                        android:textFontWeight="400"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+
+                android:background="@drawable/dashed_border"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/link"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="https://samplelink.oia.bio/ashd..."
+                    android:layout_gravity="center"
+                    android:textColor="@color/darkBlue"
+                    android:fontFamily="@font/figtreeregular"
+                    android:textSize="14sp"
+                    android:textFontWeight="400"/>
+                <ImageButton
+                    android:id="@+id/copyButton"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="12dp"
+                    android:background="@null"
+                    android:src="@drawable/baseline_content_copy_24"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
