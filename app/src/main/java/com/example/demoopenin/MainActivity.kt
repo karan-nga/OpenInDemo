@@ -76,26 +76,23 @@ class MainActivity : AppCompatActivity() {
             monthNames.add(month)
             i++
         }
-
         val barDataSet = BarDataSet(barEntries, getString(R.string.url_clicks))
         barDataSet.color = Color.argb(255, 14, 111, 255)
-
         val barData = BarData(barDataSet)
-
-        chart.data = barData
-        chart.setBackgroundColor(Color.WHITE)
-        chart.xAxis.labelRotationAngle = -45f
-        chart.xAxis.position = XAxis.XAxisPosition.BOTTOM
-        chart.axisLeft.axisMinimum = 0f
-        chart.axisRight.isEnabled = false
-
-        chart.xAxis.valueFormatter = IndexAxisValueFormatter(monthNames)
-        chart.xAxis.granularity = 1f
-        chart.xAxis.setCenterAxisLabels(true)
-        chart.xAxis.axisMinimum = -0.5f
-        chart.xAxis.axisMaximum = barEntries.size - 0.5f
-
-        chart.invalidate()
+        chart.apply {
+            data = barData
+            setBackgroundColor(Color.WHITE)
+            xAxis.labelRotationAngle = -45f
+            xAxis.position = XAxis.XAxisPosition.BOTTOM
+            axisLeft.axisMinimum = 0f
+            axisRight.isEnabled = false
+            xAxis.valueFormatter = IndexAxisValueFormatter(monthNames)
+            xAxis.granularity = 1f
+            xAxis.setCenterAxisLabels(true)
+            xAxis.axisMinimum = -0.5f
+            xAxis.axisMaximum = barEntries.size - 0.5f
+            invalidate()
+        }
     }
     private fun topAndRecentLinks(dashboardData: DashBoardModel) {
         val tagRecyclerView: RecyclerView = binding.tagRecyclerView
@@ -109,8 +106,8 @@ class MainActivity : AppCompatActivity() {
             if (selectedTag.isNotEmpty()) {
 
                 if(selectedTag==tags[0]){
-                    val topLinks: List<TopLink> = dashboardData.data.top_links// Your topLinks data
-                    val adapter = LinkAdapter(topLinks, R.layout.item_layout) { view, topLink ->
+                    val recentLinks: List<TopLink> = dashboardData.data.top_links// Your topLinks data
+                    val adapter = LinkAdapter(recentLinks, R.layout.item_layout) { view, topLink ->
                         val linkNameTextView = view.findViewById<TextView>(R.id.linkName)
                         val logoImageView = view.findViewById<ImageView>(R.id.logo)
                         val dateTextView = view.findViewById<TextView>(R.id.date)
@@ -185,11 +182,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun linkCopy(linkTextView: TextView) {
         val textToCopy = linkTextView.text.toString()
-
         val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText(getString(R.string.copied_text), textToCopy)
         clipboard.setPrimaryClip(clip)
-
         Toast.makeText(this, getString(R.string.link_copied_to_clipboard), Toast.LENGTH_SHORT).show()
     }
 
