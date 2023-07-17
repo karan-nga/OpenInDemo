@@ -47,4 +47,14 @@ bjJA2GgUx2UEwNlbTZ7Rr38PVFJevYcXFI</string>
     </string>
     <string name="token">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjU5MjcsImlhdCI6MTY3NDU1MDQ1MH0.dCkW0ox8tbjJA2GgUx2UEwNlbTZ7Rr38PVFJevYcXFI</string>
     <string name="user_name">Karan 👋</string>
+    <string name="clicks">Clicks</string>
+    <string name="dashboard">DashBoard</string>
+    <string name="loading">Loading</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="url_clicks">URL Clicks</string>
+    <string name="link_copied_to_clipboard">Link copied to clipboard</string>
+    <string name="copied_text">Copied Text</string>
+    <string name="good_morning">Good Morning</string>
+    <string name="good_evening">Good Evening</string>
+    <string name="good_afternoon">Good Afternoon</string>
 </resources>

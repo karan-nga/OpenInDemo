@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DashBoard"
+        android:text="@string/dashboard"
         android:textColor="@color/white"
         android:fontFamily="@font/figtreeregular"
         android:textSize="24sp"
@@ -40,7 +40,6 @@
                 android:id="@+id/currentTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GoodMorning"
                 android:fontFamily="@font/figtreeregular"
                 android:textFontWeight="400"
                 android:textColor="#999CA0"

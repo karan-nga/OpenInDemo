@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[DashboardViewModel::class.java]
         val token = getString(R.string.token)
-        val progressDialog = ProgressLoadingDialog(this, "Loading")
+        val progressDialog = ProgressLoadingDialog(this, getString(R.string.loading))
         viewModel.dashboardData.observe(this) { response ->
             when (response) {
                 is ApiResponse.Loading -> {
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 is ApiResponse.Error -> {
                     progressDialog.dismiss()
-                   Toast.makeText(this,"Something went wrong",Toast.LENGTH_SHORT).show()
+                   Toast.makeText(this,getString(R.string.something_went_wrong),Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             i++
         }
 
-        val barDataSet = BarDataSet(barEntries, "URL Clicks")
+        val barDataSet = BarDataSet(barEntries, getString(R.string.url_clicks))
         barDataSet.color = Color.argb(255, 14, 111, 255)
 
         val barData = BarData(barDataSet)
@@ -175,19 +175,22 @@ class MainActivity : AppCompatActivity() {
         val currentHour = calendar.get(Calendar.HOUR_OF_DAY)
 
         return if (currentHour in 0..11) {
-            "Good Morning"
+            getString(R.string.good_morning)
+        } else if (currentHour in 12..17) {
+            getString(R.string.good_afternoon)
         } else {
-            "Good Evening"
+            getString(R.string.good_evening)
         }
     }
+
     private fun linkCopy(linkTextView: TextView) {
         val textToCopy = linkTextView.text.toString()
 
         val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val clip = ClipData.newPlainText("Copied Text", textToCopy)
+        val clip = ClipData.newPlainText(getString(R.string.copied_text), textToCopy)
         clipboard.setPrimaryClip(clip)
 
-        Toast.makeText(this, "Link copied to clipboard", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.link_copied_to_clipboard), Toast.LENGTH_SHORT).show()
     }
 
 }

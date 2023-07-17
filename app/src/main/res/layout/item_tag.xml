@@ -4,7 +4,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_marginEnd="24dp"
-        android:background="#F5F5F5"
         android:layout_height="wrap_content"
         app:cardCornerRadius="18dp"
         app:strokeColor="@color/white">
@@ -15,7 +14,6 @@
             android:layout_height="match_parent"
             android:padding="10dp"
             android:background="#F5F5F5"
-            android:text="Hello world"
             android:textColor="@android:color/white"/>
 
     </com.google.android.material.card.MaterialCardView>
